@@ -19,3 +19,10 @@ def update_slot_2(request,pk,status):
     slot2.save()
     return redirect('park_home',pk)
 
+def get_slot_1(request,pk):
+    slot = SlotStatus.objects.get(device_id=pk)
+    return HttpResponse(slot.slot_1)
+    
+def get_slot_2(request,pk):
+    slot = SlotStatus.objects.get(device_id=pk)
+    return HttpResponse(slot.slot_2)
